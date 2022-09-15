@@ -1,21 +1,16 @@
-const sumAll = function(n, m) {
-    if(typeof n !== "number" || typeof m !== "number") {
-        return "ERROR";
-    }
+const sumAll = function(min, max) {
+    if (!Number.isInteger(min) || !Number.isInteger(max)) return "ERROR";
     
-    if (n < 0 || m < 0) return "ERROR";
+    if (min < 0 || max < 0) return "ERROR";
 
-    let low, high;
-    if (n > m) {
-        low = m;
-        high = n;
-    } else {
-        low = n;
-        high = m;
+    if (min > max) {
+        temp = min;
+        min = max;
+        max = temp;
     }
- 
+
     let sum = 0;
-    for (let i = low; i <= high; i++) {
+    for (let i = min; i <= max; i++) {
         sum += i;
     }
 
